@@ -1,0 +1,85 @@
+@import url(general.css);
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&family=Roboto&display=swap');
+
+
+.container{
+    /* outline: 1px solid; */
+    display: flex;
+    max-width: 100%;
+    margin-left: 40px;
+    margin-right: auto;
+    padding-left: 1rem;
+}
+
+.float-right {
+    float: right;
+}
+
+
+.table-container {
+    
+    height: auto;
+    margin: px;
+}
+
+
+.overflow {
+    overflow-y: scroll;
+}
+
+.student-wrapper {
+    display: flex;
+    justify-content: center;
+    xbackground: white;
+    width: 100%;
+    min-height: 700px;
+}
+
+.main-panel {
+    width: 65%;
+    max-height: 100;
+}
+
+.side-panel {
+    width: 40%;
+    height: 70%;
+}
+
+
+
+.panel-container {
+    background-color: var(--clr-slate-50);
+    max-width: 1000px;
+    padding: 3rem 3rem 3rem 3rem;
+    box-shadow: var(--bx-shadow);
+    border-radius: var(--brd-radius);
+    margin: 10px;
+    height: auto;
+}
+
+.input-wrapper {
+    display: flex;
+}
+
+button .icon {
+    width: 25px; /* Adjust the size of the icon */
+    height: 26px;
+    margin-right: 15px; /* Space between the icon and the text */
+    display:                                                          ;
+  }
+
+button {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.signin {
+    border: 1px red; !important
+}
+
+#updateStud_button {
+    background: green; !important
+
+}
