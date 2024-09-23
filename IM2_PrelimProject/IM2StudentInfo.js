@@ -29,22 +29,29 @@ const firebaseConfig = {
   const submitButton = document.getElementById("updateStud_button");
       
 
-document.getElementById('updateStud_button').addEventListener('click', async () => {
-  try {
-      if(studentIdInput.value=="" || studentNameInput.value==""){
-          alert('No input')
-      }else{
-          const ref = doc(db, "List of Students", studentIdInput.value);
-          await setDoc(ref, {
-              studentID : studentIdInput.value,
-              studentName : studentNameInput.value
-          });
-          alert('Success')
+  document.getElementById('updateStud_button').addEventListener('click', async () => {
+    try {
+      if (studentIdInput.value == "" || studentNameInput.value == "") {
+        alert('No input');
+      } else {
+        const ref = doc(db, "List of Students", studentIdInput.value);
+        await setDoc(ref, {
+          studentID: studentIdInput.value,
+          studentName: studentNameInput.value
+        });
+        alert('Success');
+        
+        // Refresh the page after 3 seconds
+        setTimeout(() => {
+          
+          window.location.reload();
+        }, 3000); // 3000 milliseconds = 3 seconds
       }
-  } catch (error) {
-      alert(error)
-  }
-});
+    } catch (error) {
+      alert(error);
+    }
+  });
+  
 
 document.getElementById('signInWithGoogle').addEventListener('click', () => {
   signInWithPopup(auth, provider)
