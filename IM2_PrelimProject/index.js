@@ -1,4 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+import { getFirestore, doc, getDoc, getDocs, collection, addDoc, setDoc, updateDoc, deleteDoc, deleteField } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
 
 const firebaseConfig = {
@@ -30,7 +31,7 @@ const firebaseConfig = {
       // The signed-in user info.
       const user = result.user;
       // ...
-      window.open = 'IM2_PrelimProject/IM2StudentInfo.html';
+      window.location.href = 'IM2_PrelimProject/IM2StudentInfo.html';
     })
     .catch((error) => {
       // Handle Errors here.
@@ -41,5 +42,6 @@ const firebaseConfig = {
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
       // ...
+      console.log(errorMessage);
     });
   });

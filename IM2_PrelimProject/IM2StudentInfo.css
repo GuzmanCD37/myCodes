@@ -18,8 +18,8 @@
 
 
 .table-container {
-    
-    height: auto;
+    min-height: 300px;
+    max-height: 600px;
     margin: px;
 }
 
@@ -59,4 +59,9 @@
 
 .input-wrapper {
     display: flex;
+}
+
+#updateStud_button {
+    background: green; 
+
 }
