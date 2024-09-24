@@ -31,7 +31,7 @@ const firebaseConfig = {
       // The signed-in user info.
       const user = result.user;
       // ...
-      window.location.href = 'IM2_PrelimProject/IM2StudentInfo.html';
+      window.location.href = 'IM2StudentInfo.html';
     })
     .catch((error) => {
       // Handle Errors here.
