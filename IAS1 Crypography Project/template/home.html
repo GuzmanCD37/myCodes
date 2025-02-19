@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Messaging</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Secure Messaging App</h1>
+        <form id="messageForm">
+            <label for="message">Enter your message:</label>
+            <textarea id="message" name="message" rows="4" cols="50" placeholder="Type your message here..."></textarea><br>
+            <button type="button" onclick="sendMessage()">Send Message</button>
+        </form>
+
+        <h3>Encrypted Message:</h3>
+        <p id="encryptedMessage"></p>
+
+        <h3>Decrypted Message:</h3>
+        <p id="decryptedMessage"></p>
+    </div>
+
+    <script>
+        async function sendMessage() {
+            const message = document.getElementById('message').value;
+            const formData = new FormData();
+            formData.append('message', message);
+
+            // Send the message to the Flask app for encryption
+            const response = await fetch('/send_message', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            document.getElementById('encryptedMessage').textContent = result.encrypted_message;
+
+            // Now simulate receiving and decrypting the message
+            const response2 = await fetch('/receive_message', {
+                method: 'POST',
+                body: new URLSearchParams({
+                    'encrypted_message': result.encrypted_message
+                })
+            });
+
+            const result2 = await response2.json();
+            document.getElementById('decryptedMessage').textContent = result2.decrypted_message;
+        }
+    </script>
+</body>
+</html>
